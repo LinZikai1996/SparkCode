@@ -19,5 +19,22 @@ object HelloScala {
   def main(args: Array[String]): Unit = {
     // 输出
     println("Hello Scala")
+
+    val string1: String = "Hello"
+    val string2: String = " world!"
+    println(string1 + string2)
+
+    val name: String = "Tom"
+    val age:Int = 10
+    val salary: Float = 10000
+    val height: Double = 1.85
+
+    //格式化输出
+    printf("name = %s, age = %d, salary = %.2f, height = %.3f \n", name, age, salary, height)
+    // $输出
+    println(s"name: $name, age: $age, salary: $salary, height: $height")
+    println(s"name: $name, age: ${age + 1}, salary: ${salary + 200}, height: ${height + 0.01}")
+
+
   }
 }
