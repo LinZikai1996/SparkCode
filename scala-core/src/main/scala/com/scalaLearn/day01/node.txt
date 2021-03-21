@@ -1,0 +1,36 @@
+1、Scala
+    传统而言，对象放在堆里，基本数据类型放在栈里
+    逃逸分析
+    生命周期比较长或者被多个变量引用，就会放在堆里
+    生命周期短，可能放在栈里
+2、变量
+    特点
+        ①声明变量，类型可以省略 (类型推导)
+        ②类型确定，不能修改(Scala是强类型语言)
+    类型推导
+    val number = 10
+        方式1: 可以使用idea方式来证明
+            println(number)
+        方式2: 使用isInstanceOf[Int]来证明
+            println(number.isInstanceOf[Int])
+    var 变量可以改变
+    val 变量不可以改变，在编译后在底层加上final
+        理由:
+            ①实际编程中，获取、创建一个对象后，读取或修改对象属性，很少去改变对象本身，就可以使用val
+                因此，无线程安全问题，效率高，推荐
+            ②要改变就使用var
+                一定要给初始值或者_
+3.因为Int是一个类(实例)，可以使用很多方法
+    Scala中一个方法没有形参，可以省略括号
+        println(number.toString + " \t" + number.toDouble)
+
+4.数据类型
+    ①一切皆是对象，数据类型分为两大类，AnyVal(值类型,基本数据类型)和AnyRef(引用类型)
+    ②Scala中一个根类型Any, 是所有类型的父类
+    ③Null是scala的特别类型，只有一个值 null，是bottom class，是所有AnyRef类型的子类
+    ④Nothing类型也是bottom class，是所有类型的子类，可以返回给任意变量，抛出异常用得多
+        Nothing作为返回值，明确说明该方法没有正常返回值
+            def sayHello: Nothing = {
+                throw new Exception("抛出异常")
+            }
+    ⑤Scala中遵守隐式转化
